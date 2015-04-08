@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+	<h:head>
+		<title>	#{msgs.applicationTitle} </title>
+	</h:head>      
+   
+    <h:body>
+    	<ui:composition template="/templates/masterLayout.xhtml">
+    		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+	    	<ui:define name="content">
+		    	<h:form style="padding-left:15px;">
+			    	<h4>Timesheet Overview</h4>
+			    	<div style="background-color:lightgray;display:inline-block;padding:5px;">
+						<b><i>Employee:</i></b>
+			    		<i>#{timesheetBean.reviewee.firstName} #{timesheetBean.reviewee.lastName} </i> 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<b><i>Week Ending:</i></b>						
+						<i>#{timesheetBean.timeSheet.weekEnding}</i>
+						<br/>
+						<b><i>Labour Grade:</i></b>
+						<i>#{timesheetBean.reviewee.labourGradeID}</i>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<b><i>Week Number:</i></b>						
+						<i>#{timesheetBean.timeSheet.getWeekNumber()}</i>
+		    		<h:panelGrid>
+		    		<br/>
+					<h:dataTable class="table" value="#{timesheetBean.timeSheet.details}" var="row" border="2" style="background:white;">	
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Project ID"/>
+							</f:facet>
+							<h:outputText value="#{row.projectID}" size="10"/>						
+						</h:column>	
+						<h:column >
+							<f:facet name="header">
+								<h:outputText value="Work Package"/>
+							</f:facet>
+							<h:outputText value="#{row.workPackage}" size="10"  />
+							<f:facet name="footer">
+								Total
+							</f:facet>
+						</h:column>	
+						<h:column >
+							<f:facet name="header">
+								<h:outputText value="Total"/>
+							</f:facet>
+							<h:outputText value="#{row.sum}" size="10"  />
+							<f:facet name="footer">
+								<h:outputText value="#{timesheetBean.timeSheet.totalHours}"/>
+							</f:facet>
+						</h:column>	
+						<h:column >
+							<f:facet name="header">
+								<h:outputText value="Sat"/>
+							</f:facet>
+							<h:outputText value="#{row.hoursForWeek[0]}" size="10"   />
+							<f:facet name="footer">
+								<h:outputText value="#{timesheetBean.timeSheet.dailyHours[0]}"/>						
+							</f:facet>
+						</h:column>
+						<h:column >
+						<f:facet name="header">
+							<h:outputText value="Sun"/>
+						</f:facet>
+						<h:outputText value="#{row.hoursForWeek[1]}" size="10"   />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[1]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Mon"/>
+						</f:facet>
+						<h:outputText value="#{row.hoursForWeek[2]}" size="10"  />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[2]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Tue"/>
+						</f:facet>
+						<h:outputText value="#{row.hoursForWeek[3]}" size="10"   />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[3]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Wed"/>
+						</f:facet>
+						<h:outputText value="#{row.hoursForWeek[4]}" size="10"   />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[4]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Thu"/>
+						</f:facet>
+						<h:outputText value="#{row.hoursForWeek[5]}" size="10"   />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[5]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Fri"/>
+						</f:facet>
+						<h:outputText value="#{row.hoursForWeek[6]}" size="10"   />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[6]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Notes"/>
+						</f:facet>
+						<h:outputText value="#{row.notes}" size="30"   />
+					</h:column> 
+				</h:dataTable>
+				</h:panelGrid>	
+    			<br/>
+    			<h:panelGrid columns="7">
+					<b>Flextime: </b>
+				    &nbsp;&nbsp;		
+		    			<h:outputText value="#{timesheetBean.timeSheet.flextime}"/>
+		    	    &nbsp;&nbsp;&nbsp;	
+					<b>Overtime: </b>
+					&nbsp;&nbsp;
+		    			<h:outputText value="#{timesheetBean.timeSheet.overtime}"/>  
+				    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		    		 
+		    		<h:commandButton value="Approve" class="btn btn-success" action="#{timesheetBean.approveTimesheet(timesheetBean.reviewee, login.userName)}"/> 
+		    		<h:commandButton value="Deny" class="btn btn-danger"  action="#{timesheetBean.denyTimesheet(timesheetBean.reviewee, login.userName)}"/> 
+    			</h:panelGrid>	   
+    			</div>	
+    			<br/>
+    			<h:panelGrid columns="2" style="margin-top:5px;">
+					<h:commandButton class="btn btn-default" value="Back" action="viewNeedApproval"/>		
+    			</h:panelGrid>							 
+	    		</h:form>
+    		</ui:define>
+	    </ui:composition>
+    </h:body>    
+</html>      

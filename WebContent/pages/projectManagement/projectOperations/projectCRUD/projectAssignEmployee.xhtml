@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="projectEmployeeAssignForm" >
+			
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead"
+							value="Assign an Employee to Project #{projectEmployee.projectID}" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-1 col-md-offset-2">
+						<h:outputFormat value="Employee Username" />
+					</div>
+					<div class="col-md-2">
+						<h:selectOneMenu value="#{projectEmployee.employeeUserName}"
+							style="float:right;width:130px;" required="true"
+							id="employeeUserName">
+							<f:selectItems value="#{projectEmployee.employeeUserNameList}" />
+						</h:selectOneMenu>
+					</div>
+				</div>
+				<div class="col-md-6 col-md-offset-2">
+					<h:message for="employeeUserName" style="color:red;" />
+				</div>
+
+				<div class="row">
+					<div class="col-md-offset-2 col-md-3">
+						<h:commandButton class="btn btn-primary"
+							value="Assign Employee To Project"
+							action="#{projectEmployee.assignEmployee}" />
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" immediate="true"
+							action="/pages/projectManagement/projectOperations/projectEmployeeMenu.xhtml" />
+					</div>
+				</div>
+				
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

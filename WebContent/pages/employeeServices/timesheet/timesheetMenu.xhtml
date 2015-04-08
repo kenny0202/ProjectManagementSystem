@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+	<h:head>
+		<title>	#{msgs.applicationTitle} </title>
+	</h:head>      
+   
+    <h:body>
+    	<ui:composition template="/templates/masterLayout.xhtml">
+    		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+	    	<ui:define name="content">
+		    	<h:form	id = "newTimesheetForm" >
+    				<div class="row">
+						<div class="col-md-6 col-md-offset-3">
+    						<h:commandButton class="btn btn-lg btn-primary btn-block" value = "View Your Timesheets" action = "/pages/employeeServices/timesheet/viewTimesheets.xhtml"/>
+	    			</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+	    				<h:commandButton class="btn btn-lg btn-default btn-block" value = "#{msgs.backString}" action = "/pages/employeeServices/employeeServicesMenu.xhtml"/>
+					</div>
+				</div>
+	    		</h:form>
+    		</ui:define>
+	    </ui:composition>
+    </h:body>    
+</html>

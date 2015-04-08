@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+	<!-- ~~~Navigation Rules~~~ Login Page (index.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SuperUser</from-outcome>
+			<to-view-id>/pages/mainMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Employee Management Menu (employeeManagementMenu.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/employeeManagementMenu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>LabourGrade</from-outcome>
+			<to-view-id>/pages/employeeManagement/labourGradeOperations/labourGradeMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Employee Create Page (employeeCreate.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeCreate.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeCreate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Employee Delete Page (employeeDelete.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeDelete.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeDelete.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Employee Update Search Page (employeeUpdateSelect.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeUpdateSelect.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeUpdate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeUpdateSelect.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Employee Update Page (employeeUpdate.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeUpdate.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeCRUD/employeeUpdate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Employee Details Search Page (employeeDetailsSelect.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/employeeOperations/employeeDetailsSelect.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeDetails.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeDetailsSelect.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Employee Details Page (employeeDetails.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/employeeOperations/employeeDetails.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeOperations/employeeViewMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Main Menu Page (mainMenu.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/mainMenu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>ProjectManagement</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Create Page (projectCreate.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectCreate.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectCreate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Delete Page (projectDelete.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectDelete.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectDelete.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Update Search Page (projectUpdateSelect.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectUpdateSelect.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectUpdate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectUpdateSelect.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Update Page (projectUpdate.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectUpdate.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectUpdate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Details Search Page (projectDetailsSelect.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectDetailsSelect.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectDetails.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectDetailsSelect.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Details Page (projectDetails.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectDetails.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>PackageManagement</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/workPackageMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>MonthlyReport</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/monthlyReport.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>EmployeeProject</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectEmployeeMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Work Package Menu Page (packageCreate.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/workPackageOperations/workPackageCRUD/packageCreate.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/workPackageMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/workPackageCRUD/packageCreate.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/workPackageMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Package Details Search Page (packageDetailsSelect.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/workPackageOperations/packageDetailsSelect.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/packageDetails.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Failure</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/packageDetailsSelect.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/workPackageMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Package Details Page (packageDetails.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/workPackageOperations/packageDetails.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/workPackageMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>PackageManagement</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/workPackageMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Package Menu Page (workPackageMenu.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/workPackageOperations/workPackageMenu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>PackageManagement</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/workPackageMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ProjectManagement</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Search</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/packageDetailsSelect.xhtml </to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Monthly Report (monthlyReport.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/monthlyReport.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectDetails.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Package Status Report View (viewStatusReport.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/workPackageOperations/statusReport/viewStatusReport.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>pages/projectManagement/workPackageOperations/statusReport/statusReportMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Status Report Menu(statusReportMenu.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/workPackageOperations/statusReport/statusReportMenu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/packageDetails.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>ViewStatusReport</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/statusReport/viewStatusReport.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Status Report Create(statusReportCreate.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/workPackageOperations/statusReport/statusReportCRUD/statusReportCreate.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/statusReport/statusReportMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/statusReport/statusReportMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Package Options(packageOptions.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/workPackageOperations/packageOptions.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/packageDetails.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/workPackageOperations/packageDetails.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Labour Grade Update (labourGradeUpdate.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/labourGradeOperations/labourGradeUpdate.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/employeeManagement/labourGradeOperations/labourGradeMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/employeeManagement/labourGradeOperations/labourGradeMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Labour Grade Menu (labourGradeMenu.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/employeeManagement/labourGradeOperations/labourGradeMenu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/employeeManagement/employeeManagementMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Employee Menu (projectEmployeeMenu.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectEmployeeMenu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectDetails.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Assign</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectAssignEmployee.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Remove</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectRemoveEmployee.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Employee Assign (projectAssignEmployee.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectAssignEmployee.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectEmployeeMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectEmployeeMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<!-- Project Employee Remove (projectRemoveEmployee.xhtml) -->
+	<navigation-rule>
+		<from-view-id>/pages/projectManagement/projectOperations/projectCRUD/projectRemoveEmployee.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>Success</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectEmployeeMenu.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>Back</from-outcome>
+			<to-view-id>/pages/projectManagement/projectOperations/projectEmployeeMenu.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<application>
+		<resource-bundle>
+			<base-name>resources/messages</base-name>
+			<var>msgs</var>
+		</resource-bundle>
+	</application>
+	
+</faces-config>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="updateEmployeeForm">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead" value="Update Employee" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="First Name" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.firstName}" id="firstName"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="firstName" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Last Name" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.lastName}" id="lastName"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="lastName" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Labour Grade" />
+					</div>
+					<div class="col-md-2">
+						<h:selectOneMenu value="#{employee.labourGradeID}"
+							style="float:right;width:130px;">
+							<f:selectItems value="#{employee.labourGradeIds}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="col-md-4">
+						<h:message for="labourGradeID" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Supervisor ID" />
+					</div>
+					<div class="col-md-2">
+						<!-- 
+		    				<h:inputText value = "#{employee.supervisorID}" id = "supervisorID" style = "float:right;">
+		    					<f:validateLength minimum="0" maximum="20" />
+			    			</h:inputText>
+			    			 -->
+						<h:selectOneMenu value="#{employee.supervisorID}" id="supervisor"
+							style="float:right;width:130px;">
+							<f:selectItems value="#{employee.supervisorIdsWithoutCurr}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="col-md-4">
+						<h:message for="supervisorID" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Address" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.address}" id="address"
+							style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="address" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Province" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.province}" id="province"
+							style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="province" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Country" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.country}" id="country"
+							style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="country" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Postal Code" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.postalCode}" id="postalCode"
+							style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="postalCode" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Home Number" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.homeNumber}" id="homeNumber"
+							style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="homeNumber" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Cell Number" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.cellNumber}" id="cellNumber"
+							style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="cellNumber" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Email Address" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.emailAddress}" id="emailAddress"
+							style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="emailAddress" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Sick Leave Time Balance" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.sickLeaveTimeBalance}"
+							id="sickLeaveTimeBalance" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="sickLeaveTimeBalance" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Vacation Time Balance" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{employee.vacationTimeBalance}"
+							id="vacationTimeBalance" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="vacationTimeBalance" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:commandButton class="btn btn-primary" value="Update Employee"
+							action="#{employee.updateEmployee}" />
+						<h:commandButton class="btn btn-default" value="Back" immediate="true"
+							action="#{employee.backErase}" />
+					</div>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

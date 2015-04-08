@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="createPackageForm">
+
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead" value="Create a Status Report" />
+					</div>
+				</div>
+
+				<br />
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="SS Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.ssEstimate}" id="ssEstimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="ssEstimate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="JS Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.jsEstimate}" id="jsEstimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="200" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="jsEstimate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="DS Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.dsEstimate}" id="dsEstimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="dsEstimate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P1 Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.p1Estimate}" id="p1Estimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p1Estimate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P2 Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.p2Estimate}" id="p2Estimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p2Estimate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P3 Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.p3Estimate}" id="p3Estimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p3Estimate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P4 Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.p4Estimate}" id="p4Estimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p4Estimate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P5 Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.p5Estimate}" id="p5Estimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p5Estimate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P6 Estimate to Complete" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{package.p6Estimate}" id="p6Estimate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p6Estimate" style="color:red;" />
+					</div>
+				</div>
+				
+				<br />
+				
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Comments" />
+					</div>
+					<div class="col-md-2">
+						<h:inputTextarea value="#{package.comments}" id="comments"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="50" />
+						</h:inputTextarea>
+					</div>
+					<div class="col-md-4">
+						<h:message for="comments" style="color:red;" />
+					</div>
+				</div>
+				
+				<br />
+				
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:commandButton class="btn btn-primary"
+							value="Create Status Report"
+							action="#{package.createStatusReport}" />
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" immediate="true"
+							action="#{package.back}" />
+					</div>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

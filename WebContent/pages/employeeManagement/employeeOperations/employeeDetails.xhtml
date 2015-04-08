@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-2">
+						<br />
+						<h:outputFormat class="lead"
+							value="Details for Employee #{employee.firstName} #{employee.lastName}" />
+						<br />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="First Name" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.firstName}" id="firstName"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Last Name" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.lastName}" id="lastName"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Employee ID" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.employeeID}" id="employeeID"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Labour Grade" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.labourGradeID}"
+							id="labourGradeID" required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Role" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.role}" id="role" required="true"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Supervisor ID" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.supervisorID}" id="supervisorID"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="User Name" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.userName}" id="userName"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Address" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.address}" id="address"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Province" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.province}" id="province"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Country" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.country}" id="country"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Postal Code" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.postalCode}" id="postalCode"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Home Number" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.homeNumber}" id="homeNumber"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Cell Number" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.cellNumber}" id="cellNumber"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Email Address" />
+					</div>
+					<div class="col-md-2">
+						<h:outputFormat value="#{employee.emailAddress}" id="emailAddress"
+							style="float:right;" />
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+				<h:commandButton class="btn btn-default" value="#{msgs.backString}"
+					action="#{employee.backErase}" />
+					</div>
+					</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

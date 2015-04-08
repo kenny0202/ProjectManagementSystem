@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="projectEmployeeMenuForm" >
+			
+			<div class="row">
+					<div class="col-md-6 col-md-offset-4">
+
+						<p>
+							<h:commandButton class="btn btn-primary" value="Assign Employee"
+								action="#{projectEmployee.getEmployeeForAssignment}" />
+							<h:commandButton class="btn btn-primary" value="Remove Employee"
+								action="#{projectEmployee.getEmployeeForRemoval}" />
+							<h:commandButton class="btn btn-default" value="#{msgs.backString}" immediate="true"
+								action="#{projectEmployee.backEnd}" />
+						</p>
+
+					</div>
+				</div>
+			<div class="row">
+					<div class="col-md-6 col-md-offset-4">
+				<h:dataTable class="table"
+					value="#{projectEmployee.projectEmployeeList}"
+					var="projectEmployeeList" border="1">
+					<f:facet name="header">
+						<h4>
+							<h:outputText
+								value="Employees Assigned to Project #{projectEmployee.projectID}" />
+						</h4>
+					</f:facet>
+					<h:column>
+			    			#{projectEmployeeList.employeeUserName}
+			    		</h:column>
+				</h:dataTable>
+				</div>
+				</div>
+				
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form>
+
+	    	<div class="row">
+		    	<div class="col-md-6 col-md-offset-3">
+			   		
+				   		<p>
+
+						<h:commandButton class="btn btn-primary"
+							value="Search for Projects"
+							action="/pages/projectManagement/projectOperations/projectDetailsSelect.xhtml" />
+						<h:commandButton class="btn btn-primary" value="Create Project"
+							action="/pages/projectManagement/projectOperations/projectCRUD/projectCreate.xhtml" 
+							rendered = "#{login.isAdmin or login.isSupervisor}"/>
+
+						<h:commandButton class="btn btn-primary" value="Update Project"
+							action="/pages/projectManagement/projectOperations/projectCRUD/projectUpdateSelect.xhtml" 
+							rendered = "#{login.isAdmin or login.isSupervisor}"/>
+
+						<h:commandButton class="btn btn-primary" value="Delete Project"
+							action="/pages/projectManagement/projectOperations/projectCRUD/projectDelete.xhtml" 
+							rendered = "#{login.isAdmin or login.isSupervisor}"/>
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" action="/pages/mainMenu.xhtml" />
+
+						</p>
+					
+					</div>
+				</div>
+				
+					<h:dataTable class="table" value="#{project.projectsList}" var="projectsList"
+						border="1" style="margin-left: auto; margin-right: auto">
+
+						<f:facet name="header">
+							<h:outputText value="Project List" />
+						</f:facet>
+						<h:column>
+							<f:facet name="header">Project ID</f:facet>
+			    			#{projectsList.projectID}
+			    		</h:column>
+						<h:column>
+							<f:facet name="header">Project Description</f:facet>
+			    			#{projectsList.description}
+			    		</h:column>
+					</h:dataTable>
+			
+
+
+			</h:form>
+			
+
+			
+			
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

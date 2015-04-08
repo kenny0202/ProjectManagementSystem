@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="updateLabourGradeForm"
+				style="padding-left:15px important!;">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead"
+							value="Update a Labour Grade's Charge Rate" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="SS Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.ssChargeRate}" id="ssChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+
+						<h:message for="ssChargeRate" style="color:red;" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="DS Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.dsChargeRate}" id="dsChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="dsChargeRate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="JS Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.jsChargeRate}" id="jsChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="jsChargeRate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P1 Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.p1ChargeRate}" id="p1ChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p1ChargeRate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P2 Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.p2ChargeRate}" id="p2ChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p2ChargeRate" style="color:red;" />
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P3 Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.p3ChargeRate}" id="p3ChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p3ChargeRate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P4 Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.p4ChargeRate}" id="p4ChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p4ChargeRate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P5 Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.p5ChargeRate}" id="p5ChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p5ChargeRate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="P6 Charge Rate" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText value="#{labourGrade.p6ChargeRate}" id="p6ChargeRate"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p6ChargeRate" style="color:red;" />
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h:commandButton class="btn btn-primary"
+							value="Update Labour Grade Charge Values"
+							action="#{labourGrade.updateLabourGradeValues}" />
+						<h:commandButton class="btn btn-default" value="Back"
+							immediate="true" action="#{labourGrade.back}" />
+					</div>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

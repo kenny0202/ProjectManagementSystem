@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="selectProjectForm">
+
+				<h:panelGrid columns="1" style="margin-left:auto;margin-right:auto;">
+
+					<h:outputFormat
+						value="Enter the project ID of the Project you want details of"
+						style="font-size: 25px;" />
+
+					<div class="panel-body">
+						<div class="form-group">
+
+							<div class="row">
+								<h:panelGroup>
+									<h:outputFormat value="Project ID" />
+									<h:inputText class="form-control" value="#{project.projectID}" id="projectID"
+										required="true" style="float:right;">
+										<f:validateLength minimum="1" maximum="20" />
+									</h:inputText>
+									<h:message for="projectID" style="color:red;" />
+								</h:panelGroup>
+							</div>
+
+							<div class="col-md-6 col-md-offset-3">
+								<h:commandButton value="Select Project"
+									class="btn btn-lg btn-primary btn-block"
+									action="#{project.validateProject}" />
+								<h:commandButton value="Back" immediate="true"
+									class="btn btn-lg btn-primary btn-block"
+									action="#{project.back}" />
+							</div>
+
+						</div>
+					</div>
+
+				</h:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

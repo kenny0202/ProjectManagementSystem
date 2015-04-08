@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form>
+			
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead"
+							value="Details for Package #{package.packageID}" />
+					</div>
+				</div>
+				
+				<br />
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Package ID" />
+						<h:outputFormat value="#{package.packageID}" id="packageID"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Parent Package ID" />
+						<h:outputFormat value="#{package.parentPackageID}"
+							id="parentPackageID" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Project ID" />
+						<h:outputFormat value="#{package.projectID}" id="projectID"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Package Description" />
+						<h:outputFormat value="#{package.description}" id="description"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Package Status" />
+						<h:outputFormat value="#{package.status}" id="status"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Start Date" />
+						<h:outputFormat value="#{package.startDate}" id="startDate"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="End Date" />
+						<h:outputFormat value="#{package.endDate}" id="endDate"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+
+						<h:outputFormat value="Total Budget" />
+						<h:outputFormat value="#{package.budget}" id="budget"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Total Estimated Cost" />
+						<h:outputFormat value="#{package.estimatedCost}"
+							id="estimatedCost" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Total Current Cost" />
+						<h:outputFormat value="#{package.currentCost}" id="currentCost"
+							style="float:right;" />
+					</div>
+				</div>
+				
+				<br />
+				
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:commandButton class="btn btn-primary"
+							value="Status Report Menu"
+							action="/pages/projectManagement/workPackageOperations/statusReport/statusReportMenu.xhtml" />
+						<h:commandButton class="btn btn-primary"
+							value="View Child Work Packages"
+							action="#{package.childPackageManagementMenu}" />
+						<h:commandButton class="btn btn-primary"
+							value="Work Package Options"
+							action="/pages/projectManagement/workPackageOperations/packageOptions.xhtml" />
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" action="#{package.backDecision}" />
+					</div>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="createPackageForm">
+			
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead" value="Create a Package" />
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Package ID" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.packageID}" id="packageID"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="packageID" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Responsible Engineer Employee Username" />
+					</div>
+					<div class="col-md-3">
+						<h:selectOneMenu value="#{package.engineerUsername}"
+							id="engineerUsername" required="true" style="float:right;">
+							<f:selectItems value="#{package.userNmsForResEngineer}" />
+						</h:selectOneMenu>
+					</div>
+					<div class="col-md-4">
+						<h:message for="engineerUsername" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Package Description" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.description}" id="description"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="200" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="description" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Start Date" />
+					</div>
+					<div class="col-md-3">
+						<rich:calendar value="#{package.startDate}" style="float:right;"
+							required="true" id="startDate" inputStyle="width:108px;"
+							datePattern="yyyy-MM-dd" />
+					</div>
+					<div class="col-md-4">
+						<h:message for="startDate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="End Date" />
+					</div>
+					<div class="col-md-3">
+						<rich:calendar value="#{package.endDate}" style="float:right;"
+							required="true" id="endDate" inputStyle="width:108px;"
+							datePattern="yyyy-MM-dd" />
+					</div>
+					<div class="col-md-4">
+						<h:message for="endDate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="SS Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.ssBudget}" id="ssBudget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="ssBudget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="JS Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.jsBudget}" id="jsBudget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="200" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="jsBudget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="DS Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.dsBudget}" id="dsBudget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="dsBudget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="P1 Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.p1Budget}" id="p1Budget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p1Budget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="P2 Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.p2Budget}" id="p2Budget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p2Budget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="P3 Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.p3Budget}" id="p3Budget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p3Budget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="P4 Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.p4Budget}" id="p4Budget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p4Budget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="P5 Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.p5Budget}" id="p5Budget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p5Budget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="P6 Budget" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText value="#{package.p6Budget}" id="p6Budget"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="p6Budget" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:commandButton class="btn btn-primary" value="Create Package"
+							action="#{package.createPackage}" />
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" immediate="true"
+							action="#{package.back}" />
+					</div>
+				</div>
+				
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

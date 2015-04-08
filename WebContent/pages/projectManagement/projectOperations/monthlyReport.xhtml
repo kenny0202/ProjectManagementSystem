@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form>
+			
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead" value="Project:" />
+						<h:outputFormat class="lead" value="#{project.projectID}" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead" value="Month:" />
+					</div>
+				</div>
+				
+				<br />
+
+				<h:dataTable class="table" value="#{project.monthlyReportRowListPD}"
+					var="table" border="1" style="margin-left:auto;margin-right:auto;">
+
+					<f:facet name="header">
+						<h:outputText value="Monthly Report in Person Days" />
+					</f:facet>
+
+					<h:column>
+						<f:facet name="header">Work Package</f:facet>
+		    				#{table.packageID}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Budget (BCWS)</f:facet>
+		    				#{table.budget}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Actual To Date (ACWP)</f:facet>
+		    				#{table.ACWP}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Estimate At Completion (EAC)</f:facet>
+		    				#{table.EAC}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">% Variance</f:facet>
+		    				#{table.variance}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Comments</f:facet>
+		    				#{table.comments}
+		    			</h:column>
+
+				</h:dataTable>
+
+				<br />
+				<br />
+
+				<h:dataTable class="table" value="#{project.monthlyReportRowListLD}"
+					var="table" border="1" style="margin-left:auto;margin-right:auto;">
+
+					<f:facet name="header">
+						<h:outputText value="Monthly Report in Labour Dollars" />
+					</f:facet>
+
+					<h:column>
+						<f:facet name="header">Work Package</f:facet>
+		    				#{table.packageID}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Budget (BCWS)</f:facet>
+		    				#{table.budget}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Actual To Date (ACWP)</f:facet>
+		    				#{table.ACWP}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Estimate At Completion (EAC)</f:facet>
+		    				#{table.EAC}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">% Variance</f:facet>
+		    				#{table.variance}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Comments</f:facet>
+		    				#{table.comments}
+		    			</h:column>
+
+				</h:dataTable>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" action="#{project.back}" />
+					</div>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

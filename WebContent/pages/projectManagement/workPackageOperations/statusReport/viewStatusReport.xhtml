@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form>
+
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead"
+							value="Work Package: #{package.packageID}" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead" value="Week Ending:" />
+					</div>
+				</div>
+
+				<br />
+
+				<h:dataTable class="table" value="#{package.statusReportRowList}"
+					var="table" border="1" style="margin-left:auto;margin-right:auto;">
+
+					<h:column>
+						<f:facet name="header">Labour Grade</f:facet>
+		    				#{table.laborGrade}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Progress in PD</f:facet>
+		    				#{table.progressInPD}
+		    			</h:column>
+
+					<h:column>
+						<f:facet name="header">Estimate To Complete</f:facet>
+		    				#{table.estimateToComplete}
+		    			</h:column>
+
+				</h:dataTable>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<p>
+							<h:outputFormat value="Comments: " />
+							<h:inputTextarea value="#{package.comments}" readonly="true" />
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" action="#{package.back}" />
+					</div>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

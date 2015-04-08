@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-5" >
+
+						<p>
+							<h:commandButton class="btn btn-primary" value="Edit Labour Grade Charge Values"
+								action="/pages/employeeManagement/labourGradeOperations/labourGradeUpdate.xhtml" />
+							<h:commandButton class="btn btn-default" value="#{msgs.backString}"
+								action="#{labourGrade.backExit}" />
+						</p>
+
+					</div>
+				</div>
+
+				<h:dataTable class="table" value="#{labourGrade.labourGradeList}"
+					var="labourGradeList" border="1"
+					style="margin-left:auto;margin-right:auto;">
+
+					<f:facet name="header">
+						<h:outputText class="lead" value="Labour Grade Charge Values" />
+					</f:facet>
+
+					<h:column>
+						<f:facet name="header">SS Charge Rate</f:facet>
+			    			#{labourGradeList.ssChargeRate}
+			    		</h:column>
+
+					<h:column>
+						<f:facet name="header">DS Charge Rate</f:facet>
+			    			#{labourGradeList.dsChargeRate}
+			    		</h:column>
+
+					<h:column>
+						<f:facet name="header">JS Charge Rate</f:facet>
+			    			#{labourGradeList.jsChargeRate}
+			    		</h:column>
+
+					<h:column>
+						<f:facet name="header">P1 Charge Rate</f:facet>
+			    			#{labourGradeList.p1ChargeRate}
+			    		</h:column>
+
+					<h:column>
+						<f:facet name="header">P2 Charge Rate</f:facet>
+			    			#{labourGradeList.p2ChargeRate}
+			    		</h:column>
+
+					<h:column>
+						<f:facet name="header">P3 Charge Rate</f:facet>
+			    			#{labourGradeList.p3ChargeRate}
+			    		</h:column>
+
+					<h:column>
+						<f:facet name="header">P4 Charge Rate</f:facet>
+			    			#{labourGradeList.p4ChargeRate}
+			    		</h:column>
+
+					<h:column>
+						<f:facet name="header">P5 Charge Rate</f:facet>
+			    			#{labourGradeList.p5ChargeRate}
+			    		</h:column>
+
+					<h:column>
+						<f:facet name="header">P6 Charge Rate</f:facet>
+			    			#{labourGradeList.p6ChargeRate}
+			    		</h:column>
+
+				</h:dataTable>
+
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

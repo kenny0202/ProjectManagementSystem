@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+	<h:head>
+		<title>	#{msgs.applicationTitle} </title>
+	</h:head>      
+   
+    <h:body>
+    	<ui:composition template="/templates/masterLayout.xhtml">
+    		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+	    	<ui:define name="content">
+	    	<h:form>
+	    	<div class="row">
+		    	<div class="col-md-6 col-md-offset-3">
+			   		
+				   		<p>
+				   			<h:commandButton class="btn btn-primary" value = "Search for Employee" action = "/pages/employeeManagement/employeeOperations/employeeDetailsSelect.xhtml"/>	
+					    	<h:commandButton class="btn btn-primary" value = "Create Employee" action = "/pages/employeeManagement/employeeOperations/employeeCRUD/employeeCreate.xhtml"/>
+					    	<h:commandButton class="btn btn-primary" value = "Update Employee" action = "/pages/employeeManagement/employeeOperations/employeeCRUD/employeeUpdateSelect.xhtml"/>
+					    	<h:commandButton class="btn btn-primary" value = "Delete Employee" action = "/pages/employeeManagement/employeeOperations/employeeCRUD/employeeDelete.xhtml"/>
+				    		<h:commandButton class="btn btn-default" value = "#{msgs.backString}" action = "/pages/employeeManagement/employeeManagementMenu.xhtml"/>
+						</p>
+					
+					</div>
+				</div>
+		    		<h:dataTable class="table" value="#{employee.employeeList}" var="employeeList" border="1" style="margin-left:auto;margin-right:auto;">
+			    		<h:column>
+			    			<f:facet name="header"><h4>Employee ID</h4></f:facet>
+			    			#{employeeList.employeeID}
+			    		</h:column>
+			    		<h:column>
+			    			<f:facet name="header"><h4>User Name</h4></f:facet>
+			    			#{employeeList.userName}
+			    		</h:column>
+			    	</h:dataTable>
+
+	    		</h:form>
+    		</ui:define>
+	    </ui:composition>
+    </h:body>    
+</html>      

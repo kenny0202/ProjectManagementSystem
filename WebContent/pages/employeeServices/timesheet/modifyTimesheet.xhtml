@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" 
+      >
+      
+	<h:head>
+		<title>	#{msgs.applicationTitle} </title>
+	</h:head>      
+    <h:body>
+    	<ui:composition template="/templates/masterLayout.xhtml">
+
+    		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+	    	<ui:define name="content">
+		    	<h:form id="modifyTimesheetForm" style="padding-left:15px;">		    	
+					<p>
+				    <b>Employee ID:</b>  <i>#{login.employee.employeeID}</i>
+				    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    <b>Week Number:</b>  <i> #{timesheetBean.timeSheet.getWeekNumber()}</i>				
+				    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				    <b>Week Ending:</b>   <i>#{timesheetBean.timeSheet.weekEnding}</i>				
+					</p>
+					<p>
+						<b>Employee Name:</b>  <i>#{login.employee.firstName} #{login.employee.lastName}</i> 
+					</p>
+					
+  					<h:panelGrid columns="5" cellpadding="4">
+		    			<h:commandButton value = "Back" action ="#{timesheetBean.backToAll()}"/>
+		    			<h:commandButton action="#{timesheetBean.save(login.employee)}" value="Save Changes" rendered="#{(not timesheetBean.timeSheet.submittedForApproval) and (not timesheetBean.timeSheet.approved)}"/>	
+		    			<h:commandButton id="submitButton" value = "Submit For Approval" action = "#{timesheetBean.submitForApproval(login.employee)}" rendered="#{(not timesheetBean.timeSheet.submittedForApproval) and (not timesheetBean.timeSheet.approved)}"/>
+						<h:outputText value="A record must have a Project ID, Work Package, and at least 1 working day selected/filled to be saved and/or submitted." style="font-style:italic;margin-left:5px;color:green;" rendered="#{(not timesheetBean.timeSheet.submittedForApproval) and (not timesheetBean.timeSheet.approved)}"/>
+		    			<h:outputText value="Pending Approval" style="font-weight:bold;color:red;margin-left:5px;" rendered="#{(timesheetBean.timeSheet.submittedForApproval) and (not timesheetBean.timeSheet.approved)}"/>
+	    			</h:panelGrid>
+					<br/>
+					
+					<h:dataTable value="#{timesheetBean.timeSheet.details}" var="row" border="1" cellspacing="3" cellpadding="2" style="background-color:lightgray;" id="table" >	
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Project ID"/>
+							</f:facet>
+							 <p:selectOneMenu value="#{row.projectID}" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}">
+								<f:selectItems value="#{timesheetBean.getAssignedProjects(login.userName)}"/>
+								<p:ajax update="wp" />
+							</p:selectOneMenu>
+						
+							<f:facet name="footer">
+								<h:commandButton action="#{timesheetBean.addTimesheetRow}" value="+" rendered="#{(not timesheetBean.timeSheet.submittedForApproval) and (not timesheetBean.timeSheet.approved)}" />	
+							</f:facet>
+						</h:column>	
+	
+						<h:column >
+							<f:facet name="header">
+								<h:outputText value="Work Package"/>
+							</f:facet>
+							<p:selectOneMenu value="#{row.workPackage}" id="wp" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}">
+								<f:selectItems value="#{timesheetBean.getLeafPackages(row.projectID)}"/>
+							</p:selectOneMenu>						
+						
+							<f:facet name="footer">
+								Total
+							</f:facet>
+						</h:column>	
+						<h:column >
+							<f:facet name="header">
+								<h:outputText value="Total"/>
+							</f:facet>
+							<h:outputText value="#{row.sum}" size="10"  />
+							<f:facet name="footer">
+								<h:outputText value="#{timesheetBean.timeSheet.totalHours}"/>
+							</f:facet>
+						</h:column>	
+						<h:column >
+							<f:facet name="header">
+								<h:outputText value="Sat" />
+							</f:facet>
+							<h:inputText value="#{row.hoursForWeek[0]}" size="10" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}" />
+							<f:facet name="footer">
+								<h:outputText value="#{timesheetBean.timeSheet.dailyHours[0]}"/>						
+							</f:facet>
+						</h:column>
+											<h:column >
+						<f:facet name="header">
+							<h:outputText value="Sun"/>
+						</f:facet>
+						<h:inputText value="#{row.hoursForWeek[1]}" size="10" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}" />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[1]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Mon"/>
+						</f:facet>
+						<h:inputText value="#{row.hoursForWeek[2]}" size="10" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}"/>
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[2]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Tue"/>
+						</f:facet>
+						<h:inputText value="#{row.hoursForWeek[3]}" size="10" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}" />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[3]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Wed"/>
+						</f:facet>
+						<h:inputText value="#{row.hoursForWeek[4]}" size="10" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}" />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[4]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Thu"/>
+						</f:facet>
+						<h:inputText value="#{row.hoursForWeek[5]}" size="10" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}" />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[5]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Fri"/>
+						</f:facet>
+						<h:inputText value="#{row.hoursForWeek[6]}" size="10" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}" />
+						<f:facet name="footer">
+							<h:outputText value="#{timesheetBean.timeSheet.dailyHours[6]}"/>						
+						</f:facet>
+					</h:column>	
+					<h:column >
+						<f:facet name="header">
+							<h:outputText value="Notes"/>
+						</f:facet>
+						<h:inputText value="#{row.notes}" size="30" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}" />
+					</h:column> 			
+    			</h:dataTable>
+    			<br/>
+    			
+    			<h:panelGrid columns="6" cellpadding="3">
+					<b>Flextime: </b>
+		    			<h:inputText value="#{timesheetBean.timeSheet.flextime}" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}"/>
+					<b>Overtime: </b>
+		    			<h:inputText value="#{timesheetBean.timeSheet.overtime}" disabled="#{(timesheetBean.timeSheet.approved) or (timesheetBean.timeSheet.submittedForApproval)}"/>    								 
+    			</h:panelGrid>
+    			
+    			 <!-- for input errors/success -->
+    			<br/>
+    			<h:outputText id = "inputErrorMsg"/>   
+    			<h:message for="inputErrorMsg" style="font-style:italic;color:red;font-size:x-small;"/> 
+    				    				    			
+	    		</h:form>
+	    		
+    		</ui:define>
+	    </ui:composition>
+    </h:body>    
+</html>

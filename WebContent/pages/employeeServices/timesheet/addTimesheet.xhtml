@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+	<h:head>
+		<title>	#{msgs.applicationTitle} </title>
+	</h:head>      
+   
+    <h:body>
+    	<ui:composition template="/templates/masterLayout.xhtml">
+    		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+	    	<ui:define name="content">
+			    <h:form>
+			    	#{login.userName} , #{login.password}
+		    		<h:outputText value="Add Timesheet" class="lead" />
+		    		<h:commandButton class = "btn btn-default" value = "#{msgs.backString}" action = "/pages/employeeServices/timesheet/timesheetMenu.xhtml"/>
+		    	</h:form>
+    		</ui:define>
+	    </ui:composition>
+    </h:body>    
+</html>

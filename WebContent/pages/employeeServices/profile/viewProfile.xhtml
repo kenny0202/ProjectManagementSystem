@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+	<h:head>
+		<title>	#{msgs.applicationTitle} </title>
+		<h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+	</h:head>      
+   
+    <h:body>
+    	<ui:composition template="/templates/masterLayout.xhtml">
+    		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+	    	<ui:define name="content">
+		    	<h:form id="empProfile">
+		    		<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+	    			<h4>View/Update Your Profile</h4>
+	    			</div>
+	    			</div>
+	    			
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "First Name" />
+		    				</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.firstName}"  id = "firstName" required = "true" >
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    				</div>
+					<div class="col-md-4">
+		    				<h:message for = "firstName" style = "color:red;"/>
+		    		</div>
+		    		</div>
+		    		
+		    			<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "Last Name"/>
+		    						    				</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.lastName}" id = "lastName" required = "true">
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    					</div>
+					<div class="col-md-4">
+		    				<h:message for = "lastName" style = "color:red;"/>
+		    			</div>
+		    			</div>
+		    			
+		    				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "Address"/>
+		    				</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.address}" id = "address" >
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    					</div>
+					<div class="col-md-4">
+		    				<h:message for = "address" style = "color:red;"/>
+		    			</div>
+		    			</div>
+		    			
+		    			
+		    					    				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "Province"/>
+		    					</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.province}" id = "province" >
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    				</div>
+					<div class="col-md-4">
+		    				<h:message for = "province" style = "color:red;"/>
+		    			</div>
+		    			</div>
+		    			
+		    			<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "Country"/>
+		    				</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.country}" id = "country" >
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    				</div>
+					<div class="col-md-4">
+		    				<h:message for = "country" style = "color:red;"/>
+		    			</div>
+		    			</div>
+		    			
+		    			<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "Postal Code"/>
+		    				</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.postalCode}" id = "postalCode" >
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    				</div>
+					<div class="col-md-4">
+		    				<h:message for = "postalCode" style = "color:red;"/>
+		    			</div>
+		    			</div>
+		    				
+		    			<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "Home Number"/>
+		    				</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.homeNumber}" id = "homeNumber" >
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    						    				</div>
+					<div class="col-md-4">
+		    				<h:message for = "homeNumber" style = "color:red;"/>
+		    			</div>
+		    			</div>
+		    				
+		    			<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "Cell Number"/>
+		    				</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.cellNumber}" id = "cellNumber" >
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    						</div>
+					<div class="col-md-4">
+		    				<h:message for = "cellNumber" style = "color:red;"/>
+		    		</div>
+		    			</div>
+		    			
+		    			<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+		    				<h:outputFormat value = "Email Address"/>
+		    				</div>
+					<div class="col-md-2">
+		    				<h:inputText value = "#{login.employee.emailAddress}" id = "emailAddress" >
+		    					<f:validateLength minimum="1" maximum="20" />
+		    				</h:inputText>
+		    			</div>
+					<div class="col-md-4">
+		    				<h:message for = "emailAddress" style = "color:red;"/>
+		    			</div>
+		    			</div>
+	    			 	    			
+	    			<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+		    			<h:commandButton class="btn btn-primary" value="Update" action="#{login.updateEmployee()}" />
+		    			<h:commandButton class="btn btn-default" value = "#{msgs.backString}" action = "employeeProfileMenu"/>
+		    			</div>
+		    			
+					<br/>
+				    <h:outputText id = "savedMsg"/>   
+				    <h:message for="savedMsg" style="font-style:italic;color:green;font-size:small;"/> 
+		    		</div>
+	    		</h:form>
+    		</ui:define>
+	    </ui:composition>
+    </h:body>    
+</html>

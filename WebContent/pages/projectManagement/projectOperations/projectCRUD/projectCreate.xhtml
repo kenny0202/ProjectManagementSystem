@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:rich="http://richfaces.org/rich">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="createProjectForm">
+
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead" value="Create a Project" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Project ID" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText class="form-control" value="#{project.projectID}"
+							id="projectID" required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="projectID" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Project Manager Employee Username" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText class="form-control"
+							value="#{project.projectManagerUsername}"
+							id="projectManagerUsername" required="true">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="projectManagerUsername" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Project Description" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText class="form-control" value="#{project.description}"
+							id="description" required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="200" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="description" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Client Name" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText class="form-control" value="#{project.clientName}"
+							id="clientName" required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="50" />
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="clientName" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Start Date" />
+					</div>
+					<div class="col-md-3">
+						<rich:calendar value="#{project.startDate}" 
+							required="true" id="startDate" inputStyle="width:108px;"
+							datePattern="yyyy-MM-dd" />
+					</div>
+					<div class="col-md-4">
+						<h:message for="startDate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="End Date" />
+					</div>
+					<div class="col-md-3">
+						<rich:calendar value="#{project.endDate}" 
+							required="true" id="endDate" inputStyle="width:108px;"
+							datePattern="yyyy-MM-dd" />
+					</div>
+					<div class="col-md-4">
+						<h:message for="endDate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:outputFormat value="Markup Rate" />
+					</div>
+					<div class="col-md-3">
+						<h:inputText class="form-control" value="#{project.markupRate}"
+							id="markupRate" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+							<f:validateLongRange minimum="1"/>
+						</h:inputText>
+					</div>
+					<div class="col-md-4">
+						<h:message for="markupRate" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:commandButton class="btn btn-primary" value="Create Project"
+							action="#{project.createProject}" />
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" immediate="true"
+							action="#{project.back}" />
+					</div>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form >
+
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead"
+							value="Details for Project #{project.projectID}" />
+					</div>
+				</div>
+
+				<br />
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Project ID" />
+						<h:outputFormat value="#{project.projectID}" id="projctID"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Project Description" />
+						<h:outputFormat value="#{project.description}" id="description"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Project Client" />
+						<h:outputFormat value="#{project.clientName}" id="clientName"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Start Date" />
+						<h:outputFormat value="#{project.startDate}" id="startDate"
+							required="true" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="End Date" />
+						<h:outputFormat value="#{project.endDate}" id="endDate"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Markup Rate" />
+						<h:outputFormat value="#{project.markupRate}" id="markupRate"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Total Budget" />
+						<h:outputFormat value="#{project.budget}" id="budget"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Total Estimated Cost" />
+						<h:outputFormat value="#{project.estimatedCost}"
+							id="estimatedCost" style="float:right;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 col-md-offset-2">
+						<h:outputFormat value="Total Current Cost" />
+						<h:outputFormat value="#{project.currentCost}" id="currentCost"
+							style="float:right;" />
+					</div>
+				</div>
+
+				<br />
+
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:commandButton class="btn btn-primary"
+							value="View Monthly Report" action="#{project.monthlyReport}" />
+						<h:commandButton class="btn btn-primary"
+							value="View Work Packages"
+							action="#{package.packageManagementMenu}" />
+						<h:commandButton class="btn btn-primary"
+							value="Employee Assignment Menu"
+							action="#{projectEmployee.viewEmployeeAssignment}"
+							rendered="#{login.isAdmin or login.isSupervisor}" />
+						<h:commandButton class="btn btn-default"
+							value="#{msgs.backString}" action="#{project.backErase}" />
+					</div>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

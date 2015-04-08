@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="viewAll">
+
+
+
+
+				<div class="row">
+					<div class="col-md-5 col-md-offset-3">
+						<h3>View/Edit Your Timesheets</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-offset-3">
+						<p>
+							<b>Entries For:</b> <i>#{login.employee.firstName}
+								#{login.employee.lastName}</i>
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-5 col-md-offset-3">
+						<p>
+							<h:commandButton class="btn btn-default" value="Back"
+							action="/pages/employeeServices/timesheet/timesheetMenu.xhtml" />
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-7 col-md-offset-3">
+						<h:dataTable class="table"
+							value="#{timesheetBean.getTimesheets(login.employee)}" var="ts"
+							border="1" cellspacing="3" cellpadding="2">
+							<h:column>
+								<h:commandButton action="#{timesheetBean.displayTimesheet(ts)}"
+									value="View" rendered="#{(ts.approved)}" />
+								<h:commandButton action="#{timesheetBean.displayTimesheet(ts)}"
+									value="View"
+									rendered="#{(ts.submittedForApproval) and (not ts.approved)}" />
+								<h:commandButton action="#{timesheetBean.displayTimesheet(ts)}"
+									value="Edit"
+									rendered="#{(not ts.approved) and (not ts.submittedForApproval)}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Week Ending" />
+								</f:facet>
+								<h:outputText value="#{ts.weekEnding}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputText value="Approved" />
+								</f:facet>
+								<h:outputText value="Yes"
+									rendered="#{(ts.approved) and (not ts.submittedForApproval)}" />
+								<h:outputText value="Not Submitted"
+									rendered="#{(not ts.submittedForApproval) and (not ts.approved) and (not ts.denied)}" />
+								<h:outputText value="Pending"
+									rendered="#{(ts.submittedForApproval) and (not ts.approved)}" />
+								<h:outputText value="Denied" rendered="#{ts.denied}" />
+							</h:column>
+						</h:dataTable>
+					</div>
+				</div>
+				<br />
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

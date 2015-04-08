@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="selectEmployeeForm" style="padding-left:15px;">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+
+						<h:outputFormat class="lead"
+							value="Enter the User Name of the employee you wish to update" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-1 col-md-offset-2">
+						<h:outputFormat value="User Name" />
+					</div>
+					<div class="col-md-2 ">
+						<h:inputText value="#{employee.userName}" id="userName"
+							required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-2">
+						<h:message for="userName" style="color:red;" />
+					</div>
+				</div>
+			
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						<h:commandButton class="btn btn-primary" value="Select Employee"
+							action="#{employee.validateEmployee}" />
+						<h:commandButton class="btn btn-default" 
+						value="Back" immediate="true"
+							action="#{employee.back}" />
+					</div>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

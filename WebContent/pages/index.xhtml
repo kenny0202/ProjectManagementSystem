@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{msgs.applicationTitle}</title>
+	<h:outputStylesheet name="css/index.css" />
+	<h:outputStylesheet name="css/bootstrap.min.css" />
+	<h:outputStylesheet name="css/bootstrap-theme.min.css" />
+</h:head>
+
+<h:body>
+
+
+
+	<div class="container">
+		<h:form id="loginForm" class="form-signin">
+			<h:message for="userName" id="userName_error" style="color:red;" />
+			<h:panelGrid columns="1">
+				<h:panelGroup>
+					<h:outputText class="lead" value="#{msgs.userNameString}" id="userName" />: 
+			    	<h:inputText value="#{login.userName}" class="form-control" />
+				</h:panelGroup>
+				<h:panelGroup>
+					<h:outputText class="lead" value="#{msgs.passwordString}" />: 
+			    	<h:inputSecret value="#{login.password}" class="form-control" />
+				</h:panelGroup>
+				<h:commandButton value="Login" class="btn btn-lg btn-primary btn-block" action="#{login.validateLogin}" />
+			</h:panelGrid>
+		</h:form>
+	</div>
+
+</h:body>
+</html>

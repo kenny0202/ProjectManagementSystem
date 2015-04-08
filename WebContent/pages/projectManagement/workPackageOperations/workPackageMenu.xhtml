@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form>
+
+				<div class="row">
+					<div class="col-md-6 col-md-offset-4"  >
+
+						<p>
+							<h:commandButton class="btn btn-primary"
+								value="Search for Package"
+								action="#{package.searchChildPackage}" />
+							<h:commandButton class="btn btn-primary" value="Create Package"
+								action="/pages/projectManagement/workPackageOperations/workPackageCRUD/packageCreate.xhtml"
+								rendered="#{package.createChildren}" />
+							<h:commandButton class="btn btn-default"
+								value="#{msgs.backString}" action="#{package.backDecision}" />
+						</p>
+
+					</div>
+				</div>
+				
+				<div  class="col-md-6 col-md-offset-4">
+
+				<h:dataTable class="table" value="#{package.packageList}"
+					var="packageList" border="1">
+
+					<f:facet name="header">
+						<h:outputText value="Child Package List" />
+					</f:facet>
+					<h:column>
+						<f:facet name="header">Package ID</f:facet>
+			    			#{packageList.packageID}
+			    		</h:column>
+					<h:column>
+						<f:facet name="header">Project ID</f:facet>
+			    			#{packageList.projectID}
+			    		</h:column>
+					<h:column>
+						<f:facet name="header">Package Description</f:facet>
+			    			#{packageList.description}
+			    		</h:column>
+				</h:dataTable>
+			</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

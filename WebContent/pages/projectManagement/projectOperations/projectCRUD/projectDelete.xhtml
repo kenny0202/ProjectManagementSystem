@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<h:outputStylesheet library="css" name="styles.css" />
+	<title>#{msgs.applicationTitle}</title>
+</h:head>
+<h:body>
+	<ui:composition template="/templates/masterLayout.xhtml">
+		<ui:define name="applicationTitle"> #{msgs.applicationTitle} </ui:define>
+		<ui:define name="content">
+			<h:form id="deleteProjectForm">
+
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<h:outputFormat class="lead"
+							value="Enter the Project ID of the project you wish to delete" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-1 col-md-offset-2">
+						<h:outputFormat value="Project ID" />
+					</div>
+					<div class="col-md-2">
+						<h:inputText class="form-control" value="#{project.projectID}"
+							id="projectID" required="true" style="float:right;">
+							<f:validateLength minimum="1" maximum="20" />
+						</h:inputText>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6 col-md-offset-2">
+						<h:message for="userName" style="color:red;" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-offset-2 col-md-3">
+						<p>
+							<h:commandButton value="Delete Project" class="btn btn-primary"
+								action="#{project.deleteProject}" />
+							<h:commandButton value="Back" immediate="true"
+								class="btn btn-default" action="#{project.back}" />
+						</p>
+					</div>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
